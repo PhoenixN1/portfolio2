@@ -42,7 +42,7 @@
             overflow-x: hidden;
         }
 
-        /* Header Styles */
+
         header {
             position: fixed;
             top: 0;
@@ -66,6 +66,10 @@
             padding: 1rem 5%;
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        nav a {
+            text-decoration: none;
         }
 
         .logo {
@@ -282,6 +286,53 @@
 
         .skills {
             margin-top: 2rem;
+        }
+
+        .skills .myproject {
+            height: 45px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* margin-top: 2rem; */
+            /* border: #333 solid 1px; */
+        }
+
+        .btn-projects {
+            padding: 10px 20px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-projects:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-projects i {
+            margin: 0px 0 0px 8px;
+            animation: btnHover 1.5s infinite;
+        }
+
+        @keyframes btnHover {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(-9px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+
         }
 
         .skills h4 {
@@ -680,7 +731,9 @@
 
     <header>
         <nav>
-            <div class="logo">My Portfolio</div>
+            <a href="index.html">
+                <div class="logo">My Portfolio</div>
+            </a>
             <ul class="nav-links">
                 <li><a href="#home" aria-label="Home">Home</a></li>
                 <li><a href="#about" aria-label="About">About</a></li>
@@ -725,10 +778,18 @@
                     <div class="skill-bars">
                         <div class="skill-bar">
                             <div class="skill-info">
-                                <span>HTML/CSS</span><span>90%</span>
+                                <span>HTML</span><span>90%</span>
                             </div>
                             <div class="progress-bar">
                                 <div class="progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span>CSS</span><span>85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" data-width="85"></div>
                             </div>
                         </div>
                         <div class="skill-bar">
@@ -755,6 +816,29 @@
                                 <div class="progress" data-width="75"></div>
                             </div>
                         </div>
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span>MySQL</span><span>80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span>C</span><span>50%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" data-width="50"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="myproject">
+                        <a href="project.html">
+                            <button class="btn-projects" aria-label="My Projects">My Projects <i
+                                    class="fa-solid fa-arrow-right"></i></button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -811,6 +895,23 @@
                     </div>
                 </div>
 
+
+                <div class="contact-form slide-in-right">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+
+                </div>
             </div>
         </form>
     </section>
@@ -820,7 +921,7 @@
             <h3>Mostafa Mellouki</h3>
             <p>Web Developer & Designer based in Morocco. I build modern and intuitive web experiences.</p>
             <div class="social-icons">
-                <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <!-- <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a> -->
                 <a href="https://www.linkedin.com/in/mostafa-mellouki-25bb69280/" aria-label="LinkedIn"><i
                         class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/PhoenixN1/desktop-tutorial" aria-label="GitHub"><i
@@ -833,7 +934,7 @@
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -847,7 +948,7 @@
             });
         });
 
-        // Mobile menu toggle
+
         const burgerMenu = document.querySelector('.burger-menu');
         const navLinks = document.querySelector('.nav-links');
 
@@ -856,7 +957,7 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on a link
+
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 burgerMenu.classList.remove('active');
@@ -910,12 +1011,12 @@
             });
         }, observerOptions);
 
-        // Observe all elements with animation classes
+
         document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
             observer.observe(el);
         });
 
-        // Skill bars animation
+
         const skillObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -935,7 +1036,7 @@
             skillObserver.observe(skillsSection);
         }
 
-        // Form submission
+
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -944,7 +1045,7 @@
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
 
-            // Show loading state
+
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
 
@@ -955,31 +1056,30 @@
                 });
 
                 if (response.ok) {
-                    // Success message
                     showNotification('Message sent successfully!', 'success');
                     contactForm.reset();
                 } else {
                     throw new Error('Failed to send message');
                 }
             } catch (error) {
-                // Error message
+
                 showNotification('Failed to send message. Please try again.', 'error');
             } finally {
-                // Reset button
+
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
         });
 
-        // Notification system
+
         function showNotification(message, type) {
-            // Remove existing notifications
+
             const existingNotification = document.querySelector('.notification');
             if (existingNotification) {
                 existingNotification.remove();
             }
 
-            // Create notification element
+
             const notification = document.createElement('div');
             notification.className = `notification ${type}`;
             notification.innerHTML = `
@@ -990,7 +1090,7 @@
         </div>
       `;
 
-            // Add notification styles
+
             notification.style.cssText = `
         position: fixed;
         top: 20px;
@@ -1191,7 +1291,7 @@
             });
         });
 
-        // Loading screen
+
         const loadingScreen = document.createElement('div');
         loadingScreen.className = 'loading-screen';
         loadingScreen.innerHTML = `
@@ -1264,7 +1364,7 @@
 
         document.body.appendChild(loadingScreen);
 
-        // Hide loading screen after page load
+
         window.addEventListener('load', () => {
             setTimeout(() => {
                 loadingScreen.style.opacity = '0';
@@ -1274,7 +1374,7 @@
             }, 1500);
         });
 
-        // Performance optimization: Lazy loading for images
+
         const images = document.querySelectorAll('img');
         const imageObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1293,7 +1393,7 @@
             imageObserver.observe(img);
         });
 
-        // Add some interactive particles to hero section
+
         function createParticles() {
             const hero = document.querySelector('.hero');
             const particlesContainer = document.createElement('div');
