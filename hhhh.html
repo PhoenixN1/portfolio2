@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="">
+  <meta name="author" content="Mostafa Mellouki" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    .custom-cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(102, 126, 234, 0.5);
+      pointer-events: none;
+      z-index: 9999;
+      transition: all 0.1s ease;
+      transform: translate(-50%, -50%);
+      backdrop-filter: blur(2px);
+    }
+
+    .cursor-follower {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #667eea;
+      pointer-events: none;
+      z-index: 9998;
+      transition: all 0.15s ease;
+      transform: translate(-50%, -50%);
+    }
+
+    @media (max-width: 768px) {
+
+      .custom-cursor,
+      .cursor-follower {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <script>
+
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
+
+    const cursorFollower = document.createElement('div');
+    cursorFollower.className = 'cursor-follower';
+    document.body.appendChild(cursorFollower);
+
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+
+      setTimeout(() => {
+        cursorFollower.style.left = e.clientX + 'px';
+        cursorFollower.style.top = e.clientY + 'px';
+      }, 50);
+    });
+
+
+    if (window.innerWidth <= 768) {
+      cursor.style.display = 'none';
+      cursorFollower.style.display = 'none';
+    }
+
+
+    const interactiveElements = document.querySelectorAll('a, button, .service-card, .contact-item');
+
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        cursor.style.background = 'rgba(102, 126, 234, 0.8)';
+      });
+
+      el.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursor.style.background = 'rgba(102, 126, 234, 0.5)';
+      });
+    });
+
+
+  </script>
+</body>
+
+</html>
