@@ -39,8 +39,10 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
       line-height: 1.6;
+      font-family: 'Instrument Serif', serif;
+
       color: var(--text-color);
       background: var(--bg-color);
       overflow-x: hidden;
@@ -49,17 +51,20 @@
 
     header {
       position: fixed;
+      margin: 10px 0;
       top: 0;
-      width: 100%;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-color);
+      width: 75%;
+      border-radius: 50px;
+      background: #0f172a76;
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--border-color);
       z-index: 1000;
       transition: all 0.3s ease;
+      transform: translateX(18%);
     }
 
     header.scrolled {
-      background: rgba(15, 23, 42, 0.98);
+      /* background: rgba(15, 23, 42, 0.98); */
       box-shadow: var(--shadow);
     }
 
@@ -74,6 +79,7 @@
 
     nav a {
       text-decoration: none;
+      display: flex;
     }
 
     .logo {
@@ -83,13 +89,25 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .img-logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 5px 17px 0 0px;
+      /* border: solid #fff 5px; */
     }
 
     .nav-links {
       display: flex;
       list-style: none;
       gap: 2rem;
-      transition: right 0.5s ease-in-out;
     }
 
     .nav-links a {
@@ -279,6 +297,184 @@
       }
     }
 
+    footer {
+      background: var(--bg-color);
+      color: #fff;
+      padding: 60px 40px 30px;
+      border-top: 1px solid #222;
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 50px;
+    }
+
+    .footer-intro {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-avatar {
+      width: 60px;
+      height: 60px;
+      background: transparent;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .footer-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .footer-intro p {
+      color: #999;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .footer-column h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      color: #fff;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 15px;
+    }
+
+    .footer-column ul li a {
+      color: #999;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 30px;
+      border-top: 1px solid #222;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .footer-legal span {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .footer-legal a {
+      color: #999;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-legal a:hover {
+      color: #fff;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 15px;
+      margin: 0 40px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+      background: #2a2a2a;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #1a1a1a;
+      border: none;
+      color: #999;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      background: #2a2a2a;
+      color: #fff;
+    }
+
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        padding: 40px 20px 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .footer-legal {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
     .modal-close {
       position: absolute;
       top: 20px;
@@ -328,7 +524,7 @@
       border: 1px solid var(--primary-color);
       border-radius: 20px;
       font-size: 0.85rem;
-      color: var(--primary-color);
+      color: white;
     }
 
     .gallery-container {
@@ -486,7 +682,7 @@
       .nav-links {
         position: fixed;
         top: 70px;
-        right: -100%;
+        right: -130%;
         width: 100%;
         height: calc(100vh - 70px);
         background: rgba(15, 23, 42, 0.95);
@@ -537,32 +733,7 @@
       }
     }
 
-    footer {
-      background: var(--dark-gradient);
-      padding: 2rem 5%;
-      box-shadow: var(--shadow);
-      margin-top: 40px;
-      border-top: 1px solid var(--border-color);
-    }
 
-    .footer-content {
-      max-width: 1200px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .footer-content h3 {
-      margin-bottom: 10px;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .footer-content p {
-      color: var(--light-text);
-      margin-bottom: 15px;
-    }
 
     .social-icons {
       margin-bottom: 15px;
@@ -594,10 +765,14 @@
   <header>
     <nav>
       <a href="index.html">
-        <div class="logo">My Portfolio</div>
+        <img class="img-logo" src="profile.png" alt="mon photo">
+        <div class="logo">
+          <h4>My<span style="color: #ffffff;">Portfolio</span></h4>
+        </div>
+
       </a>
       <ul class="nav-links">
-        <li><a href="index.html" aria-label="Home">Home</a></li>
+        <li><a href="index.html#home" aria-label="Home">Home</a></li>
         <li><a href="index.html#about" aria-label="About">About</a></li>
         <li><a href="index.html#services" aria-label="Services">Services</a></li>
         <li><a href="index.html#contact" aria-label="Contact">Contact</a></li>
@@ -647,17 +822,64 @@
     </div>
   </div>
 
-  <footer class="fade-in">
-    <div class="footer-content">
-      <h3>Mostafa Mellouki</h3>
-      <p>Web Developer & Designer based in Morocco. I build modern and intuitive web experiences.</p>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/in/mostafa-mellouki-25bb69280/" aria-label="LinkedIn"><i
-            class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/PhoenixN1/desktop-tutorial" aria-label="GitHub"><i class="fab fa-github"></i></a>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-intro">
+          <div class="footer-avatar"><img src="profile.png" alt=""></div>
+          <p>I'm Mostafa Mellouki – a developer, freelancer & problem solver. Thanks for checking
+            out my site!</p>
+        </div>
+
+        <div class="footer-column">
+          <h4>General</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="project.html">Projects</a></li>
+            <li><a href="index.html#services">My Services</a></li>
+            <li><a href="index.html#contact">Contact Me</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Specifics</h4>
+          <ul>
+            <li><a href="#guestbook">Guest Book</a></li>
+            <li><a href="#bucket">Bucket List</a></li>
+            <li><a href="#uses">Uses</a></li>
+            <li><a href="#attribution">Attribution</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>More</h4>
+          <ul>
+            <li><a href="#call">Book a call</a></li>
+            <li><a href="#links">Links</a></li>
+            <li><a href="#rss">RSS</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="copyright">
-        <p>&copy; 2025 All rights reserved | Designed by <span class="highlight">Mostafa Mellouki</span></p>
+
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <span>© 2025 Mostafa Mellouki. All rights reserved</span>
+          <a href="#privacy">Privacy Policy</a>
+          <span>|</span>
+          <a href="#terms">Terms & Conditions</a>
+        </div>
+
+        <div class="footer-social">
+          <a href="https://github.com/PhoenixN1/desktop-tutorial" class="social-icon" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/mostafa-mellouki-25bb69280/" class="social-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+
+        </div>
       </div>
     </div>
   </footer>
